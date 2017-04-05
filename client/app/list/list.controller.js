@@ -1,14 +1,19 @@
 'use strict';
 
-var self = this;
 
 (function(){
 
 
 class ListComponent {
-  constructor() {
-    // this.message = 'Hello';
-   	this.hello = "Hello"
+  constructor($http) {
+        this.$http = $http;
+     	this.hello = "Hello";
+     	this.whatever = "whatever";
+     	this.postList = [];
+
+     	this.$http.get("https://jsonplaceholder.typicode.com/posts").then(response => {
+        	this.postList = response.data
+        });
   }
 }
 
