@@ -2,6 +2,7 @@
 
 (function() {
 
+ 
   class MainController {
 
     constructor($http) {

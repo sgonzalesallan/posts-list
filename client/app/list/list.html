@@ -1,1 +1,21 @@
-<div>This is the list views. {{listCtrl.postList}}</div>
+
+<div class="container">
+<div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" ng-model="listCtrl.searchTextField">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="listCtrl.getData(listCtrl.searchTextField)">
+             <i class="glyphicon glyphicon-search"></i
+      </span>
+    </div>
+<table>
+  <tr ng-repeat="x in listCtrl.postList">
+    <td>
+    	<h4>{{ x.title }}</h4>
+    	<pre>{{ x.body }}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>

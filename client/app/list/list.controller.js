@@ -3,18 +3,24 @@
 
 (function(){
 
+var http
 
 class ListComponent {
+  getData(value) {
+    console.log("searched value: " + value)
+    http.get("https://jsonplaceholder.typicode.com/posts?userId=" + value).then(response => {
+          this.postList = response.data
+    });
+  };
+
   constructor($http) {
-        this.$http = $http;
+  		http = $http
      	this.hello = "Hello";
      	this.whatever = "whatever";
      	this.postList = [];
+      this.getData("1")
+	}
 
-     	this.$http.get("https://jsonplaceholder.typicode.com/posts").then(response => {
-        	this.postList = response.data
-        });
-  }
 }
 
 angular.module('postslistApp')
